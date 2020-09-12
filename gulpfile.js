@@ -68,7 +68,7 @@ gulp.task('scripts', () => {
             .pipe(babel({
                 presets: ['@babel/preset-env']
             })),
-        // uglify(),
+        uglify(),
         gulp.dest('dist/js')
     );
 });

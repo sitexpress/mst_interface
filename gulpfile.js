@@ -16,7 +16,7 @@ const {
     Duplex,
     pipeline,
     finished
-  } = require('readable-stream')
+  } = require('readable-stream');
 
 // Static server
 gulp.task('server', function() {
@@ -54,16 +54,6 @@ gulp.task('html', function() {
         .pipe(gulp.dest('dist/'));
 });
 
-
-
-// gulp.task('scripts', function() {
-//     return gulp.src('src/js/*.js')
-//         .pipe(babel({
-//             presets: ['@babel/env']
-//         }))
-//     .pipe(gulp.dest('dist/js'))
-// });
-
 // gulp.task('scripts', () => {
 // 	gulp.src('src/js/*.js')
 // 		.pipe(babel({
@@ -83,6 +73,14 @@ gulp.task('scripts', () => {
     );
 });
 
+// gulp.task('scripts', () => {
+//     return pipeline(
+//         gulp.src('src/js/*.js'),
+//         uglify(),
+//         gulp.dest('dist/js')
+//     );
+// });
+
 gulp.task('fonts', function() {
     return gulp.src('src/fonts/*')
         .pipe(gulp.dest('dist/fonts'));
@@ -99,9 +97,9 @@ gulp.task('images', function() {
 //     return pipeline(
 //         gulp.src('dist/js/*.js'),
 //         uglify(),
-//         gulp.dest('dist/js/bundle.js')
+//         gulp.dest('dist/js')
 //     );
 // });
 
 
-gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'html', 'scripts', 'fonts', 'images'));
+gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'html', 'fonts', 'images', 'scripts'));

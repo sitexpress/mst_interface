@@ -1,0 +1,20 @@
+@import 'libs/bootstrap-reboot.min';
+@import 'libs/fonts.scss';
+@import 'base/mixins';
+@import 'base/variables';
+@import 'base/animation';
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    min-height: 960px;
+    background-color: #ffffff;
+}
+
+@import 'blocks/header';
+@import 'blocks/container';
+@import 'blocks/footer';
+
+

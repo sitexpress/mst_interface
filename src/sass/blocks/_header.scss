@@ -1,0 +1,150 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 60px;
+    padding: 25px 25px 0 25px;
+    &__logo {
+        display: flex;
+        justify-content: space-between;
+        color: #262525;
+        font-family: Gilroy;
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0.29px;
+        line-height: 0.9rem;
+        text-transform: uppercase;
+        z-index: 1;
+        &::before {
+            content: '';
+            display: block;
+            margin-right: 23px;
+            min-width: 70px;
+            height: 70px;
+            background-color: #262525;
+        }
+    }
+    &__links {
+        display: flex;
+        justify-content: space-between;
+        line-height: 0.9rem;
+        li {
+            list-style-type: none;
+            margin-right: 55px;
+            &:last-child {
+                margin-right: 0;
+            }
+            a {
+                text-decoration: none;
+                color: #262525;
+            }
+        }
+        &__link {
+            position: relative;
+            font-family: Gilroy;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: -4%;
+                bottom: -60%;
+                width: 0%;
+                height: 4px;
+                background: #D88F5E;
+                transition-duration: 1s;
+                transition-property: width;
+            }
+            &:hover::before {
+                width: 108%;
+            }
+        }
+        .active {
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: -4%;
+                bottom: -60%;
+                width: 108%;
+                height: 4px;
+                background: #D88F5E;
+                z-index: -1;
+                // transition-duration: 1s;
+                // transition-property: width;
+            }
+        }
+    }
+    &__contact {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        list-style-type: none;
+        &::after {
+            content: '';
+            display: block;
+            margin-left: 23px;
+            min-width: 70px;
+            height: 70px;
+            background-color: #262525;
+        }
+        a {
+            text-decoration: none;
+            color: #262525;
+            font-family: Gilroy;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 0.29px;
+            line-height: 0.9rem;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+    &__humburger_one {
+        display: block;
+        position: absolute;
+        top: 28px;
+        right: 32px;
+        height: 2px;
+        min-width: 20px;
+        background-color: white;
+        -moz-transform: rotate(-50deg); /* Для Firefox */
+        -ms-transform: rotate(-50deg); /* Для IE */
+        -webkit-transform: rotate(-50deg); /* Для Safari, Chrome, iOS */
+        -o-transform: rotate(-50deg); /* Для Opera */
+        transform: rotate(-50deg);
+    }
+    &__humburger_two {
+        display: block;
+        position: absolute;
+        top: 35px;
+        right: 15px;
+        height: 2px;
+        min-width: 40px;
+        background-color: white;
+        -moz-transform: rotate(-50deg); /* Для Firefox */
+        -ms-transform: rotate(-50deg); /* Для IE */
+        -webkit-transform: rotate(-50deg); /* Для Safari, Chrome, iOS */
+        -o-transform: rotate(-50deg); /* Для Opera */
+        transform: rotate(-50deg);
+    }
+    &__humburger_three {
+        display: block;
+        position: absolute;
+        top: 40px;
+        right: 16px;
+        height: 2px;
+        min-width: 20px;
+        background-color: white;
+        -moz-transform: rotate(-50deg); /* Для Firefox */
+        -ms-transform: rotate(-50deg); /* Для IE */
+        -webkit-transform: rotate(-50deg); /* Для Safari, Chrome, iOS */
+        -o-transform: rotate(-50deg); /* Для Opera */
+        transform: rotate(-50deg);
+    }
+}

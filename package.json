@@ -30,7 +30,8 @@
   },
   "browserslist": [
     "defaults",
-    "IE 6-10",
+    "not IE 11",
+    "not IE_Mob 11",
     "maintained node versions"
   ],
   "dependencies": {

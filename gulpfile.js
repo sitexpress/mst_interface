@@ -68,12 +68,12 @@ gulp.task('scripts', () => {
             .pipe(babel({
                 presets: ['@babel/preset-env']
             })),
-        uglify(),
+        // uglify(),
         gulp.dest('dist/js')
     );
 });
 
-// gulp.task('scripts', () => {
+// gulp.task('scripts', function () {
 //     return pipeline(
 //         gulp.src('src/js/*.js'),
 //         uglify(),
@@ -92,14 +92,4 @@ gulp.task('images', function() {
         .pipe(gulp.dest('dist/img'));
 });
 
-
-// gulp.task('compress', function () {
-//     return pipeline(
-//         gulp.src('dist/js/*.js'),
-//         uglify(),
-//         gulp.dest('dist/js')
-//     );
-// });
-
-
-gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'html', 'fonts', 'images', 'scripts'));
+gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'watch', 'html', 'scripts', 'fonts', 'images'));

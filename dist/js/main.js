@@ -1,1 +1,140 @@
-"use strict";window.addEventListener("DOMContentLoaded",function(){var c=document.querySelectorAll(".container__menu__link"),t=document.querySelector(".menu__wrapper"),o=document.querySelectorAll(".tabcontent__descr"),a=document.querySelectorAll(".tabcontent_photo"),i=document.querySelectorAll(".container__content__descr__text"),e=document.querySelector(".container__menu"),n=document.querySelectorAll(".header__links__link"),s=document.querySelector(".header__links"),l=document.querySelector(".container__content__photo_wrapper"),r=document.querySelectorAll(".container__content__descr__heading");function d(t){n.forEach(function(t){t.classList.remove("active")}),0<t&&(e.style.display="none",o.forEach(function(t){t.style.display="none"}),a.forEach(function(t){t.style.display="none"}),l.style.cssText="width: 1040px;")}function u(){var t=0<arguments.length&&void 0!==arguments[0]?arguments[0]:0;n[t].classList.add("active"),c.forEach(function(t){t.classList.remove("active")}),0==t&&(c[t].classList.add("active"),e.style.display="flex",o[t].style.display="block",a[t].style.display="block",l.style.cssText="width: 758px;")}s.addEventListener("click",function(t){var s=t.target;s&&s.classList.contains("header__links__link")&&n.forEach(function(t,e){s==t&&(d(e),u(e))})}),d(),u(),o.forEach(function(t){t.style.cssText="display: none;"}),a.forEach(function(t){t.style.display="none"}),c.forEach(function(t){t.classList.remove("active")}),function(){var t=0<arguments.length&&void 0!==arguments[0]?arguments[0]:0;r[t].classList.add("transit"),i[t].classList.add("transit"),o[t].style.display="block",c[t].classList.add("active"),a[t].style.display="block",c[t].classList.add("active")}(),t.addEventListener("click",function(t){var n=t.target;n&&n.classList.contains("container__menu__link")&&c.forEach(function(t,e){var s;n==t&&(r.forEach(function(t){t.classList.remove("showup"),t.classList.add("fadeout")}),i.forEach(function(t){t.classList.remove("showup"),t.classList.add("fadeout")}),setTimeout(function(){o.forEach(function(t){t.style.cssText="display: none;"}),a.forEach(function(t){t.style.display="none"})},500),c.forEach(function(t){t.classList.remove("active")}),c[s=e].classList.add("active"),setTimeout(function(){o[s].style.cssText="display: block;",a[s].style.display="block",r.forEach(function(t){t.classList.remove("fadeout"),t.classList.add("showup")}),i.forEach(function(t){t.classList.remove("fadeout"),t.classList.add("showup")})},510))})})});
+"use strict";
+
+window.addEventListener('DOMContentLoaded', () => {
+  const menuLinks = document.querySelectorAll('.container__menu__link'),
+        parentMenuLink = document.querySelector('.menu__wrapper'),
+        menuContentDescr = document.querySelectorAll(".tabcontent__descr"),
+        menuContentPhoto = document.querySelectorAll(".tabcontent_photo"),
+        textBlock = document.querySelectorAll('.container__content__descr__text'),
+        containerMenu = document.querySelector('.container__menu'),
+        tabHeaderLinks = document.querySelectorAll('.header__links__link'),
+        parentTabHeaderLink = document.querySelector('.header__links'),
+        photoWrapper = document.querySelector('.container__content__photo_wrapper');
+  let heading = document.querySelectorAll('.container__content__descr__heading');
+
+  function hideTabContent(i) {
+    tabHeaderLinks.forEach(item => {
+      item.classList.remove('active');
+    });
+
+    if (i > 0) {
+      containerMenu.style.display = 'none';
+      menuContentDescr.forEach(item => {
+        item.style.display = 'none';
+      });
+      menuContentPhoto.forEach(item => {
+        item.style.display = 'none';
+      });
+      photoWrapper.style.cssText = 'width: 1040px;';
+    }
+  }
+
+  function showTabContent(i = 0) {
+    tabHeaderLinks[i].classList.add('active');
+    menuLinks.forEach(item => {
+      item.classList.remove('active');
+    });
+
+    if (i == 0) {
+      menuLinks[i].classList.add('active');
+      containerMenu.style.display = 'flex';
+      menuContentDescr[i].style.display = 'block';
+      menuContentPhoto[i].style.display = 'block';
+      photoWrapper.style.cssText = 'width: 758px;';
+    }
+  }
+
+  parentTabHeaderLink.addEventListener('click', e => {
+    const target = e.target;
+
+    if (target && target.classList.contains('header__links__link')) {
+      tabHeaderLinks.forEach((item, i) => {
+        if (target == item) {
+          hideTabContent(i);
+          showTabContent(i);
+        }
+      });
+    }
+  });
+
+  function hideMenuContent() {
+    menuContentDescr.forEach(item => {
+      item.style.cssText = 'display: none;';
+    });
+    menuContentPhoto.forEach(item => {
+      item.style.display = 'none';
+    });
+    menuLinks.forEach(item => {
+      item.classList.remove('active');
+    });
+  }
+
+  function showMenuContent(i = 0) {
+    heading[i].classList.add('transit');
+    textBlock[i].classList.add('transit');
+    menuContentDescr[i].style.display = 'block';
+    menuLinks[i].classList.add('active');
+    menuContentPhoto[i].style.display = 'block';
+    menuLinks[i].classList.add('active'); // heading.forEach((item) => {
+    //     item.classList.add('moving');
+    // });
+    // textBlock.forEach((item) => {
+    //     item.classList.add('moving');
+    // });
+  }
+
+  function hideChangeContent() {
+    heading.forEach(item => {
+      item.classList.remove('showup');
+      item.classList.add('fadeout');
+    });
+    textBlock.forEach(item => {
+      item.classList.remove('showup');
+      item.classList.add('fadeout');
+    });
+    setTimeout(() => {
+      menuContentDescr.forEach(item => {
+        item.style.cssText = 'display: none;';
+      });
+      menuContentPhoto.forEach(item => {
+        item.style.display = 'none';
+      });
+    }, 500);
+    menuLinks.forEach(item => {
+      item.classList.remove('active');
+    });
+  }
+
+  function showchangeContent(i) {
+    menuLinks[i].classList.add('active');
+    setTimeout(() => {
+      menuContentDescr[i].style.cssText = 'display: block;';
+      menuContentPhoto[i].style.display = 'block';
+      heading.forEach(item => {
+        item.classList.remove('fadeout');
+        item.classList.add('showup');
+      });
+      textBlock.forEach(item => {
+        item.classList.remove('fadeout');
+        item.classList.add('showup');
+      });
+    }, 510);
+  }
+
+  hideTabContent();
+  showTabContent();
+  hideMenuContent();
+  showMenuContent();
+  parentMenuLink.addEventListener('click', event => {
+    const target = event.target;
+
+    if (target && target.classList.contains('container__menu__link')) {
+      menuLinks.forEach((item, i) => {
+        if (target == item) {
+          hideChangeContent();
+          showchangeContent(i); // moving();
+        }
+      });
+    }
+  });
+});

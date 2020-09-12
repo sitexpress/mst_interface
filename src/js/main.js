@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+// window.addEventListener('DOMContentLoaded', () => {
 
     const menuLinks = document.querySelectorAll('.container__menu__link'),
         parentMenuLink = document.querySelector('.menu__wrapper'),
@@ -157,4 +157,4 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-});
+// });
